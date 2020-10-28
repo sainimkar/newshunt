@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/controllers/theme_changer_provider.dart';
 import 'package:news_app/controllers/news_articles_provider.dart';
 import 'package:news_app/routes.dart';
 import 'package:news_app/services/connectivity_service.dart';
@@ -9,9 +8,7 @@ main() async{
   runApp(
         MultiProvider(
         providers: [
-        ChangeNotifierProvider(
-          create: (context) => ThemeModel(),
-        ),
+        
         ChangeNotifierProvider(
           create: (context) => NewsArticlesProvider(),
         ),
@@ -27,12 +24,22 @@ main() async{
 }
 
 class MyApp extends StatelessWidget {
+
+  final lightTheme = ThemeData(
+  primarySwatch: Colors.grey,
+  primaryColor: Colors.lightBlue[400],
+  brightness: Brightness.light,
+  backgroundColor: const Color(0xFFE5E5E5),
+  accentColor: Colors.black,
+  accentIconTheme: IconThemeData(color: Colors.white),
+  dividerColor: Colors.white54,
+);
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: Provider.of<ThemeModel>(context).currentTheme,
+      theme: lightTheme,
       title: "NewsMe",
       onGenerateRoute: Routes.routeGenerator,
       initialRoute: "/",

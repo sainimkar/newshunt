@@ -4,7 +4,6 @@ import 'package:news_app/services/response_classify.dart';
 import 'package:news_app/views/widgets/main_scaffold.dart';
 import 'package:news_app/views/widgets/shimmer_list.dart';
 import 'package:news_app/controllers/news_articles_provider.dart';
-import 'package:news_app/controllers/theme_changer_provider.dart';
 import 'package:news_app/views/widgets/close_app_dialoge.dart';
 import 'package:news_app/views/widgets/category_button.dart';
 import 'package:news_app/views/widgets/category_grid_view.dart';
@@ -191,12 +190,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           return orientation !=
                                                   Orientation.landscape
                                               ? Container(
-                                                  color: Provider.of<ThemeModel>(
-                                                                  context)
-                                                              .currentTheme ==
-                                                          darkTheme
-                                                      ? Colors.grey[850]
-                                                      : Colors.grey[830],
+                                                  color: 
+                                                      Colors.grey[830],
                                                   padding:
                                                       const EdgeInsets.only(
                                                           left: 10, top: 5),
