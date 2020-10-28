@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:news_app/services/response_classify.dart';
+import 'package:news_app/views/widgets/category_articles_list.dart';
 import 'package:news_app/views/widgets/main_scaffold.dart';
 import 'package:news_app/views/widgets/shimmer_list.dart';
 import 'package:news_app/controllers/news_articles_provider.dart';
@@ -129,24 +130,53 @@ class _HomeScreenState extends State<HomeScreen> {
                                         )
                                       ],
                                     )
-                                  : ListView(
-                                      children: <Widget>[
-                                        Container(
-                                          height: height - 150,
-                                          child: Column(
-                                            children: <Widget>[
-                                              MediaQuery.of(context)
-                                                          .orientation ==
-                                                      Orientation.landscape
-                                                  ? SizedBox.shrink()
-                                                  : HorizontalArticlesScroll(),
-                                              Expanded(
-                                                child: GridViewArticles(),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                                  : ListView.builder (
+                                      itemCount: provider.topicsNews.data.length >
+                                              16
+                                          ? 18
+                                          : provider.topicsNews.data.length + 1,
+                                      itemBuilder: (context, index) {
+                                        // some Api Articles is duplicated so it is a check to delete this duplication
+                                        if (provider
+                                                .topicsNews.data[index].title ==
+                                            provider.topicsNews.data[index + 1]
+                                                .title) {
+                                          return SizedBox.shrink();
+                                        }
+                                        if (index == 0) {
+                                          return 
+                                              SizedBox.shrink();
+                                        }
+                                        if (index == 1) {
+                                          return orientation !=
+                                                  Orientation.landscape
+                                              ? Container(
+                                                  color: 
+                                                      Colors.grey[830],
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 10, top: 5),
+                                                  width: double.infinity,
+                                                  child: Text("Top Stories",
+                                                      style: TextStyle(
+                                                        fontSize: height > 700
+                                                            ? 18
+                                                            : 16,
+                                                      )),
+                                                )
+                                              : SizedBox.shrink();
+                                        }
+                                        if (index == 18 ||
+                                            index ==
+                                                provider.topicsNews.data.length +
+                                                    1) {
+                                          page++;
+                                          _refreshData(page);
+                                          return CircularProgressIndicator();
+                                        } else {
+                                          return CategoryArticleListView(index);
+                                        }
+                                      },
                                     )
                               : provider.allNews.status == Status.ERROR
                                   ? ListView(
