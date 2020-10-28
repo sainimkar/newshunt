@@ -10,8 +10,8 @@ Widget categoryButton(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
         color: _selectedCategory == index
-            ? Colors.red
-            : Colors.red.withOpacity(0.25),
+            ? Colors.yellow[900]
+            : Colors.yellow[900].withOpacity(0.25),
       ),
       alignment: Alignment.center,
       child: Text(

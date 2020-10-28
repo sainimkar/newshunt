@@ -8,7 +8,6 @@ import 'package:news_app/views/widgets/close_app_dialoge.dart';
 import 'package:news_app/views/widgets/category_button.dart';
 import 'package:news_app/views/widgets/category_grid_view.dart';
 import 'package:news_app/views/widgets/category_horizontal_articles.dart';
-import 'package:news_app/views/widgets/home_header_article.dart';
 import 'package:news_app/views/widgets/home_articles_list_.dart';
 import 'package:provider/provider.dart';
 
@@ -103,7 +102,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       // loading shimmer
                       ? ShimmerList()
                       : LiquidPullToRefresh(
-                          color: Theme.of(context).accentColor,
+                          color: Theme.of(context).primaryColor,
                           springAnimationDurationInMilliseconds: 300,
                           onRefresh: () async {
                             page = 1;
@@ -180,11 +179,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           return SizedBox.shrink();
                                         }
                                         if (index == 0) {
-                                          return orientation !=
-                                                  Orientation.landscape
-                                              ? HomeHeaderArticle(
-                                                  provider.allNews.data[index])
-                                              : SizedBox.shrink();
+                                          return 
+                                              SizedBox.shrink();
                                         }
                                         if (index == 1) {
                                           return orientation !=

@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Center(
         child: Image.asset(
-          "assets/images/NewsMe.png",
+          "assets/images/newshunt.png",
           height: 150,
           width: 150,
         ),

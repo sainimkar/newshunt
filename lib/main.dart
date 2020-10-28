@@ -23,17 +23,31 @@ main() async{
   );
 }
 
+class HexColor extends Color {
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll("#", "");
+    if (hexColor.length == 6) {
+      hexColor = "FF" + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
+  }
+
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+}
+
 class MyApp extends StatelessWidget {
 
-  final lightTheme = ThemeData(
+
+final lightTheme = ThemeData(
   primarySwatch: Colors.grey,
-  primaryColor: Colors.lightBlue[400],
+  primaryColor: HexColor("#50afcd"),
   brightness: Brightness.light,
   backgroundColor: const Color(0xFFE5E5E5),
-  accentColor: Colors.black,
+  accentColor: HexColor("#efaa02"),
   accentIconTheme: IconThemeData(color: Colors.white),
   dividerColor: Colors.white54,
 );
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

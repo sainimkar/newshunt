@@ -79,10 +79,7 @@ class OnBoardingScreen extends StatelessWidget {
             child: SmoothPageIndicator(
               controller: controller,
               count: onBoardingPages.length,
-              effect: ExpandingDotsEffect(
-                expansionFactor: 2,
-                dotColor: Colors.red,
-              ),
+              
             ),
           ),
           // button
@@ -104,7 +101,7 @@ class OnBoardingScreen extends StatelessWidget {
                       .bodyText2
                       .copyWith(fontSize: 20),
                 ),
-                color: Colors.red,
+                color: Colors.teal[300],
                 onPressed: () {
                   _updateSeen();
                   Navigator.of(context).pushReplacementNamed("/homeScreen");
