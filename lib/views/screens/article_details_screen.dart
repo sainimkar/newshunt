@@ -15,9 +15,7 @@ class ArticleDetails extends StatelessWidget {
     return MaterialApp(
       home: WebViewContainer(
           article.url,
-          article.title.length > 20
-              ? "${article.title.split(" ")[0]} ${article.title.split(" ")[1]} ${article.title.split(" ")[2]}"
-              : article.title),
+           article.title),
     );
   }
 }

@@ -7,8 +7,6 @@ import 'package:news_app/views/widgets/shimmer_list.dart';
 import 'package:news_app/controllers/news_articles_provider.dart';
 import 'package:news_app/views/widgets/close_app_dialoge.dart';
 import 'package:news_app/views/widgets/category_button.dart';
-import 'package:news_app/views/widgets/category_grid_view.dart';
-import 'package:news_app/views/widgets/category_horizontal_articles.dart';
 import 'package:news_app/views/widgets/home_articles_list_.dart';
 import 'package:provider/provider.dart';
 

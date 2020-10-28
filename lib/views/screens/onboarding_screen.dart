@@ -6,14 +6,14 @@ import 'package:news_app/Models/onboarding_page.dart';
 class OnBoardingScreen extends StatelessWidget {
   final List<OnBoardingPage> onBoardingPages = [
     OnBoardingPage(
-      image: "assets/images/NewsMe.png",
-      title: "News Me",
+      image: "assets/images/newshunt.png",
+      title: "News Hunt",
       details: "One place for all your news",
     ),
     OnBoardingPage(
       image: "assets/images/topicselection.png",
-      title: "My News",
-      details: "All your interesting news in one screen",
+      title: "Explore!",
+      details: "Interesting News at your fingertips!",
     ),
   ];
 
