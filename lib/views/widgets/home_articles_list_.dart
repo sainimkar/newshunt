@@ -4,6 +4,7 @@ import 'package:news_app/views/screens/article_details_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:time_formatter/time_formatter.dart';
 
+
 class HomeArticleListView extends StatelessWidget {
   final int index;
 
